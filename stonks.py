@@ -1,47 +1,25 @@
-##############
-#### Deep Charts Youtube Channel: https://www.youtube.com/@DeepCharts
-#### Subscribe for more AI/Machine Learning/Quant Finance Tutorials
-##############
 import sys
-
-##############
-### PART 1 ###
-# LIBRARIES ##
-# & OLLAMA  ##
-##############
 
 # Data Importing Libraries
 import yfinance as yf
 from finvizfinance.quote import finvizfinance
-
 # Data Modeling Library
 from statsmodels.tsa.statespace.sarimax import SARIMAX
-
 # Charts
 import plotly.graph_objects as go
-
 # Data Manipulation
 import pandas as pd
 import numpy as np
-
 # Avoid Forecasting on Holidays
 import holidays
-
 # Create Local LLM Server Connection
 from langchain_ollama.llms import OllamaLLM
-
 # Interactive Web App UI
 import streamlit as st
 
 
 # Connect to local Ollama server
 llm = OllamaLLM(model='llama3')
-
-
-##############
-### PART 2 ###
-# FUNCTIONS ##
-##############
 
 # Function to classify sentiment
 def classify_sentiment(title):
@@ -195,12 +173,6 @@ def create_plot(combined_df, forecast_mean, forecast_ci, forecast_index):
         template='plotly_dark'
     )
     st.plotly_chart(fig)
-
-
-##############
-### PART 3 ###
-# STREAMLIT ##
-##############
 
 # __main__()
 def __main__():
